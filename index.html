@@ -1,65 +1,47 @@
-<!DOCTYPE html>
-<html lang="he" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Victory Quest - מכבי</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap');
-        body {
-            font-family: 'Assistant', sans-serif;
-            background-color: #0f172a; /* צבע הרקע השחור-כחול שגורם למסך השחור אם התוכן לא נטען */
-            margin: 0;
-            overflow: hidden;
-            color: #f8fafc;
-        }
-        .glass-panel {
+import React from 'react';
+
+// עיצוב ה-CSS כבר מוטמע בתוך ה-Classes של Tailwind
+export default function App() {
+  return (
+    <div className="min-h-screen bg-[#0f172a] text-[#f8fafc] flex items-center justify-center font-sans rtl" dir="rtl">
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap');
+          body { font-family: 'Assistant', sans-serif; }
+          .glass-panel {
             background: rgba(30, 41, 59, 0.7);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-    </style>
+          }
+        `}
+      </style>
 
-    <script type="importmap">
-    {
-        "imports": {
-            "react": "https://esm.sh/react@18.2.0",
-            "react-dom": "https://esm.sh/react-dom@18.2.0",
-            "htm": "https://esm.sh/htm@3.1.1"
-        }
-    }
-    </script>
-</head>
-<body>
-    <div id="root"></div>
+      <div className="glass-panel p-10 rounded-3xl shadow-2xl text-center max-w-md w-full mx-4">
+        <div className="mb-6">
+          <i className="fas fa-trophy text-6xl text-yellow-400 mb-4 block"></i>
+          <h1 className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-blue-400 to-emerald-400 bg-clip-text text-transparent">
+            AI Victory Quest
+          </h1>
+          <p className="text-blue-200/80 text-lg">פרויקט מכבי - המערכת מוכנה</p>
+        </div>
 
-    <script type="module">
-        import React from 'react';
-        import { createRoot } from 'react-dom';
-        import htm from 'htm';
+        <div className="space-y-4">
+          <div className="bg-slate-800/50 p-4 rounded-xl border border-slate-700">
+            <p className="text-sm text-slate-300">סטטוס חיבור:</p>
+            <p className="text-green-400 font-mono">CONNECTED TO VERCEL AI</p>
+          </div>
+          
+          <button className="w-full py-3 px-6 bg-blue-600 hover:bg-blue-500 transition-colors rounded-xl font-bold text-white shadow-lg shadow-blue-900/20">
+            התחל קווסט
+          </button>
+        </div>
 
-        const html = htm.bind(React.createElement);
-
-        function App() {
-            return html`
-                <div className="flex flex-col items-center justify-center h-screen space-y-4">
-                    <div className="glass-panel p-8 rounded-2xl shadow-2xl text-center">
-                        <h1 className="text-4xl font-bold mb-4 text-blue-400">AI Victory Quest</h1>
-                        <p className="text-lg opacity-80">המערכת עלתה בהצלחה!</p>
-                        <div className="mt-6">
-                            <i className="fas fa-check-circle text-5xl text-green-400"></i>
-                        </div>
-                    </div>
-                </div>
-            `;
-        }
-
-        const root = createRoot(document.getElementById('root'));
-        root.render(html`<${App} />`);
-    </script>
-</body>
-</html>
+        <div className="mt-8 pt-6 border-t border-slate-700/50 flex justify-center space-x-6 space-x-reverse opacity-50 text-xl">
+          <i className="fab fa-react"></i>
+          <i className="fas fa-bolt"></i>
+          <i className="fas fa-brain"></i>
+        </div>
+      </div>
+    </div>
+  );
+}
